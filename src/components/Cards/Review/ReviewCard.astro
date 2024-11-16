@@ -1,0 +1,29 @@
+---
+import type { ReviewCardType } from "@ctypes/cards";
+import { Icon } from "astro-icon/components";
+import { Picture } from "astro:assets";
+interface Props extends ReviewCardType {
+  index: number;
+}
+
+const { index, author, text } = Astro.props;
+---
+
+<div class="review-card" data-line-animation>
+  <small>0{index + 1}</small>
+  <div class="sh-more-wrapper">
+    <div class="sh-more-container wysiwyg" data-max-height-mobile="190" data-max-height-desktop="210">
+      <Fragment set:html={text} />
+    </div>
+    <button class="sh-more-button">
+      <span> cкрыть </span>
+      <span> показать больше </span>
+      <Icon name={"ChevronDown"} />
+    </button>
+  </div>
+
+  <div class="user-widget">
+    <Picture src={author.image} formats={["jpeg", "webp"]} alt="Вадим Шишкин" />
+    <p>{author.username}</p>
+  </div>
+</div>

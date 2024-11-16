@@ -1,0 +1,13 @@
+---
+interface Props {
+  id?: string;
+  className?: string;
+  hidden?: boolean;
+}
+
+let { className} = Astro.props;
+---
+
+<div class:list={["accordion-wrapper", className]}>
+  <slot />
+</div>

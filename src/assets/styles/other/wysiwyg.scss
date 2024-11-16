@@ -1,0 +1,33 @@
+.wysiwyg {
+  & > *:first-child {
+    margin-top: 0 !important;
+  }
+  .h2 {
+    @include text-24;
+    margin: pxToRem(36px) 0 pxToRem(16px);
+  }
+  p {
+    & + p {
+      margin-top: pxToRem(16px);
+    }
+    & + ul {
+      margin-top: pxToRem(20px);
+    }
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(16px);
+    margin: pxToRem(16px) 0;
+    li {
+      position: relative;
+      padding-left: pxToRem(24px);
+      &::before {
+        content: "•";
+        position: absolute;
+        left: pxToRem(6px);
+        top: pxToRem(2px);
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.main-msg {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: pxToRem(24px) pxToRem(16px);
+  background-color: $color-black;
+  color: $color-white;
+  z-index: 10;
+  transition: $transition;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  button {
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  svg:first-of-type {
+    margin-right: pxToRem(12px);
+  }
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(2px);
+    small {
+      @include text-14;
+      color: $color-tonal-white-50;
+    }
+  }
+  svg:last-of-type {
+    margin-right: pxToRem(12px);
+  }
+  @include min-1024 {
+    svg:first-of-type {
+      margin-right: pxToRem(24px);
+    }
+    & > div {
+      gap: pxToRem(4px);
+      p {
+        @include text-20;
+      }
+      small {
+        @include text-16;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag> = Polymorphic<
+  { as: Tag } & {
+    form?: string; // Which form should submit
+    type?: string;
+    text?: string;
+    className?: string;
+  }
+>;
+
+const { as: Tag = "button", main = true, className, ...props } = Astro.props;
+---
+
+<Tag class:list={["btn-sliced", className]} {...props}>
+  <slot name="left" />
+  <slot name="content" />
+  <slot name="right" />
+</Tag>

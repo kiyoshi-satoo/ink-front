@@ -1,0 +1,186 @@
+// Main button
+.btn {
+  $root: &;
+  @include text-16;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: pxToRem(48px);
+  padding: pxToRem(6px) pxToRem(16px);
+  border-radius: pxToRem(5px);
+  border: 1px solid transparent;
+  transition: $transition;
+  &:disabled {
+    cursor: not-allowed;
+    &:hover {
+      border-color: transparent;
+    }
+  }
+  &--white {
+    background-color: $color-white;
+    color: $color-black;
+    &:hover {
+      background-color: transparent;
+      color: $color-white;
+      border: 1px solid $color-tonal-white-50;
+    }
+    &:disabled {
+      color: $color-black;
+      background: $color-tonal-white-50;
+    }
+  }
+  &--outline {
+    background-color: transparent;
+    color: $color-white;
+    border-color: $color-stroke-white-20;
+    &:hover {
+      background-color: transparent;
+      border-color: $color-tonal-white-50;
+    }
+    &:disabled {
+      background: transparent;
+      color: $color-tonal-white-50;
+      border-color: $color-stroke-white-20;
+    }
+  }
+  &--m {
+    @include text-20;
+    min-height: pxToRem(52px);
+  }
+  @include min-1024 {
+    &--tm {
+      @include text-20;
+      min-height: pxToRem(52px);
+    }
+  }
+  // // Loader
+  // &.is-loading {
+  //   text-indent: 100%;
+  //   white-space: nowrap;
+  //   overflow: hidden;
+  //   font-size: 0;
+  //   gap: 0;
+  //   pointer-events: none;
+  //   & > * {
+  //     opacity: 0;
+  //     position: absolute;
+  //   }
+  //   &:after {
+  //     content: " ";
+  //     width: pxToRem(24px);
+  //     height: pxToRem(24px);
+  //     border: pxToRem(2px) solid;
+  //     border-bottom-color: transparent;
+  //     border-radius: 50%;
+  //     display: inline-block;
+  //     box-sizing: border-box;
+  //     animation: rotation 1s linear infinite;
+  //   }
+  // }
+}
+// Button wrapper for sliced variant
+.btn-sliced {
+  display: flex;
+  align-items: center;
+  gap: pxToRem(4px);
+  transition: $transition;
+  .btn {
+    flex-grow: 1;
+  }
+  &:hover {
+    .btn.btn--outline {
+      border-color: $color-tonal-white-50;
+    }
+    .btn-icon {
+      border-color: $color-tonal-white-50;
+    }
+  }
+  &:disabled {
+    cursor: not-allowed;
+    .btn.btn--outline {
+      border-color: $color-stroke-white-20;
+      color: $color-tonal-white-50;
+    }
+    .btn-icon {
+      border-color: $color-stroke-white-20;
+      svg,
+      path {
+        fill: $color-tonal-white-50;
+      }
+    }
+  }
+}
+// Icon button
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: pxToRem(38px);
+  height: pxToRem(38px);
+  border-radius: pxToRem(3px);
+  border: 1px solid $color-stroke-white-20;
+  aspect-ratio: 1/1;
+  transition: $transition;
+  svg {
+    width: pxToRem(16px);
+    height: auto;
+  }
+  &:hover {
+    border-color: $color-tonal-white-50;
+  }
+  &:disabled {
+    border-color: $color-stroke-white-20;
+    svg {
+      opacity: 0.8;
+    }
+  }
+  // Colors
+  &--white {
+    background-color: $color-white;
+    &:hover {
+      background-color: transparent;
+      svg {
+        filter: invert(1);
+      }
+    }
+  }
+  // Sizes
+  &--s {
+    width: pxToRem(48px);
+    height: pxToRem(48px);
+    border-radius: pxToRem(5px);
+  }
+  &--m {
+    width: pxToRem(52px);
+    height: pxToRem(52px);
+    border-radius: pxToRem(5px);
+  }
+  @include min-1024 {
+    &--ts {
+      width: pxToRem(48px);
+      height: pxToRem(48px);
+      border-radius: pxToRem(5px);
+    }
+    &--tm {
+      width: pxToRem(52px);
+      height: pxToRem(52px);
+      border-radius: pxToRem(5px);
+    }
+  }
+}
+// Link button
+.lk-button {
+  display: inline-flex;
+  align-items: center;
+  gap: pxToRem(6px);
+  svg {
+    width: pxToRem(16px);
+    height: auto;
+  }
+  &:hover {
+    color: $color-tonal-white-50;
+    svg {
+      fill: $color-tonal-white-50;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+---
+import { Picture } from "astro:assets";
+import Button from "@components/ui/Button/Button";
+import ButtonSliced from "@components/ui/Button/ButtonSliced";
+import { Icon } from "astro-icon/components";
+import { getImageGlob } from "src/assets/js/utils/astro";
+import { InteriorCardsData } from "@data/cards";
+import InteriorCard from "@components/Cards/Interior/InteriorCard";
+const userImage = getImageGlob(import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/Team/*"), "user.png");
+---
+
+<section class="bg-dark">
+  <div class="container">
+    <div class="grid items-start">
+      <h2 class="max-w-3xl mb-6 lg:mb-8 whitespace-pre-line" data-appear-animation data-appear-trigger="closest(section)">cмотрите наши реализованные интерьеры &#10;<span class="text-tonal-white-30">на youtube</span></h2>
+      <p class="max-w-[29.75rem] lg:justify-self-end lg:col-start-2 lg:row-start-2 lg:text-20" data-appear-animation data-appear-trigger="closest(section)" data-appear-delay="0.3">
+        также делимся полезными и интересными решениями, которые применяем в своих проектах
+      </p>
+    </div>
+    <div class="flex max-lg:flex-col lg:items-center items-start justify-between gap-8 mt-8 lg:mt-20">
+      <div class="flex gap-8 lg:gap-[4.8rem]">
+        <div class="flex flex-col gap-1">
+          <p class="text-26 lg:text-40"><span data-counter-animation="[0,220000]"></span> +</p>
+          <small class="text-16 lg:text-20 text-tonal-white-50">подписчиков</small>
+        </div>
+        <div class="flex flex-col gap-1">
+          <p class="text-26 lg:text-40">≥ <span data-counter-animation="[0,20500000]">20 500 000</span></p>
+          <small class="text-16 lg:text-20 text-tonal-white-50">просмотров</small>
+        </div>
+      </div>
+      <div class="user-widget lg:w-[29.75rem]" data-appear-animation data-appear-delay="0.2" data-appear-direction="right">
+        <Picture src={userImage} formats={["jpeg", "webp"]} alt="Вадим Шишкин" />
+        <p>Вадим Шишкин</p>
+        <small>автор канала и сооснователь ink.</small>
+      </div>
+    </div>
+  </div>
+  <div class="ineriors-wrapper mt-12 lg:mt-20">
+    {InteriorCardsData.map((data) => <InteriorCard {...data} />)}
+  </div>
+  <div class="container">
+    <div class="flex justify-between max-lg:flex-col gap-8 mt-12 lg:mt-20" data-appear-animation>
+      <p class="max-w-[29.25rem] lg:text-20">именно про ваш проект может быть снят наш следующий видеоролик</p>
+      <ButtonSliced>
+        <Button as="div" className="btn--outline btn--tm lg:min-w-[26.25rem]" text="перейти на канал" slot="content" />
+        <Button as="div" main={false} className="btn-icon btn-icon--s btn-icon--tm" slot="right">
+          <Icon name={"ArrowUpRight"} slot="content" />
+        </Button>
+      </ButtonSliced>
+    </div>
+  </div>
+</section>

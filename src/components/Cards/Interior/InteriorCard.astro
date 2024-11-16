@@ -1,0 +1,32 @@
+---
+import type { InteriorCardType } from "@ctypes/cards.d";
+
+import { Icon } from "astro-icon/components";
+import { Picture } from "astro:assets";
+import Button from "@components/ui/Button/Button";
+
+interface Props extends InteriorCardType {}
+const { title, tag, image, url } = Astro.props;
+---
+
+<div class="interior">
+  <span class="line" data-line-animation></span>
+  <div>
+    <p>{title}</p>
+    <small>{tag} </small>
+    <span class="line" data-line-animation></span>
+  </div>
+  <div>
+    <div class="video-widget" data-url={url}>
+      <div class="video-widget__poster">
+        <Picture src={image} formats={["jpeg", "webp"]} alt={title} />
+        <Button main={false} className="btn-icon btn-icon--white btn-icon--tm">
+          <Icon name={"Play"} slot="content" />
+        </Button>
+      </div>
+      <div class="video-widget__frame"></div>
+    </div>
+    <small>{tag}</small>
+  </div>
+  <span class="line" data-line-animation></span>
+</div>

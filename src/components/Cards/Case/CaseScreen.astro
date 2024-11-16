@@ -1,0 +1,25 @@
+---
+import type { CaseScreenType } from "@ctypes/case";
+import Button from "@components/ui/Button/Button";
+import ButtonSliced from "@components/ui/Button/ButtonSliced";
+import { Icon } from "astro-icon/components";
+import { Picture } from "astro:assets";
+interface Props extends CaseScreenType {}
+
+const { title, image } = Astro.props;
+---
+
+<div class="case-screen">
+  <Picture src={image} formats={["jpeg", "webp"]} alt={title} />
+  <div class="container">
+    <div class="flex max-lg:flex-col gap-8 justify-between">
+      <h2>{title}</h2>
+      <ButtonSliced>
+        <Button as="div" className="btn--outline lg:min-w-[26.25rem] btn--tm" text="смотреть проект" slot="content" />
+        <Button as="div" main={false} className="btn-icon btn-icon--s btn-icon--tm" slot="right">
+          <Icon name={"ArrowUpRight"} slot="content" />
+        </Button>
+      </ButtonSliced>
+    </div>
+  </div>
+</div>

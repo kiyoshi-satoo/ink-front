@@ -1,0 +1,104 @@
+.main-input {
+  .iti {
+    width: 100%;
+    input {
+      padding: 0 !important;
+    }
+    &__country-container {
+      display: none;
+    }
+  }
+  & > div {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $color-stroke-white-20;
+    transition: $transition;
+    color: $color-tonal-white-50;
+    cursor: pointer;
+    input,
+    textarea {
+      @include text-16;
+      transition: inherit;
+      width: 100%;
+      resize: none;
+      &::placeholder {
+        color: inherit;
+      }
+    }
+    &:hover {
+      border-color: $color-stroke-white-20;
+    }
+    & > svg {
+      max-width: pxToRem(20px);
+      max-height: pxToRem(20px);
+      width: 100%;
+      height: 100%;
+    }
+    @include max-1024 {
+      @include text-16;
+      padding-bottom: pxToRem(15px);
+    }
+    @include min-1024 {
+      @include text-20;
+      padding-bottom: pxToRem(19px);
+    }
+  }
+  &__reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: pxToRem(24px);
+    height: pxToRem(24px);
+    border-radius: 1000px;
+    transform-origin: top right;
+    transform: scale(0) translateX(200%) translateY(-200%);
+    transition: all 300ms var(--ease-elastic-2);
+    svg {
+      width: pxToRem(14px);
+      height: pxToRem(14px);
+    }
+    &:hover {
+    }
+    margin: pxToRem(-2px) 0;
+  }
+  // Statuses
+  &.is-entered {
+    & > div {
+      color: $color-white;
+      border-color: $color-white;
+    }
+    .main-input__reset {
+      opacity: 1;
+      transform: scale(1) translateX(0);
+    }
+  }
+  &.is-readonly {
+    pointer-events: none;
+    & > div {
+      color: $color-black;
+    }
+  }
+  &.is-disabled {
+    pointer-events: none;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  &.has-error {
+    & > div {
+      border-color: #ff3f65 !important;
+    }
+  }
+  &:focus-within {
+    & > div {
+      border-color: $color-white;
+    }
+  }
+  // Error
+  &__error {
+    margin-top: pxToRem(8px);
+    display: flex;
+    flex-direction: column;
+    color: #ff3f65;
+  }
+}

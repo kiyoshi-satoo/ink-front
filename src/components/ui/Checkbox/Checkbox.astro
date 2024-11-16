@@ -1,0 +1,18 @@
+---
+type Props = {
+  id?: string;
+  className?: string;
+  required?: boolean;
+  name: string;
+  checked?: boolean;
+  value?: string;
+  type?: "radio" | "checkbox";
+};
+
+const { id, className, required = false, name = "checkbox", checked = false, value, type = "checkbox" } = Astro.props;
+---
+
+<div class:list={["btn-checkbox", className]}>
+  <input id={id} type={type} name={name} required={required} checked={checked} value={value} />
+  <span></span>
+</div>

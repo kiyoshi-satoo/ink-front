@@ -1,0 +1,38 @@
+/*** Colors ***/
+:root {
+  --color-black: #191919; /* Black */
+  --color-black-bg: #121212; /* Black background */
+  --color-white: #ffffff; /* White */
+
+  --color-tonal-black-50: rgba(25, 25, 25, 0.5); /* Black 50% */
+  --color-tonal-black-30: rgba(25, 25, 25, 0.3); /* Black 30% */
+  --color-tonal-white-50: rgba(255, 255, 255, 0.5); /* White 50% */
+  --color-tonal-white-30: rgba(255, 255, 255, 0.3); /* White 30% */
+
+  --color-stroke-black: #191919; /* Stroke Black */
+  --color-stroke-black-20: rgba(18, 18, 18, 0.2); /* Stroke Black 20% */
+  --color-stroke-white: #ffffff; /* Stroke White */
+
+  --color-stroke-white-10: rgba(255, 255, 255, 0.1); /* White 10% */
+  --color-stroke-white-20: rgba(255, 255, 255, 0.2); /* White 20% */
+  --color-stroke-white-30: rgba(255, 255, 255, 0.1); /* White 10% */
+}
+
+// Main colors
+$color-black: var(--color-black);
+$color-white: var(--color-white);
+$color-black-bg: var(--color-black-bg);
+
+// Tonal colors
+$color-tonal-black-50: var(--color-tonal-black-50);
+$color-tonal-black-30: var(--color-tonal-black-30);
+$color-tonal-white-50: var(--color-tonal-white-50);
+$color-tonal-white-30: var(--color-tonal-white-30);
+
+// Stroke colors
+$color-stroke-black: var(--color-stroke-black);
+$color-stroke-black-20: var(--color-stroke-black-20);
+$color-stroke-white: var(--color-stroke-white);
+$color-stroke-white-10: var(--color-stroke-white-10);
+$color-stroke-white-20: var(--color-stroke-white-20);
+$color-stroke-white-30: var(--color-stroke-white-30);

@@ -1,0 +1,21 @@
+---
+import Button from "@components/ui/Button/Button";
+import ReviewCard from "@components/Cards/Review/ReviewCard";
+import { ReviewCardsData } from "@data/cards";
+---
+
+<section class="bg-dark">
+  <div class="container">
+    <h2 data-appear-animation>отзывы</h2>
+    <div class="review-card-list mt-12 lg:mt-20">
+      {
+        ReviewCardsData.map((data, index) => (
+          <>
+            <ReviewCard {...{ ...data, index }} />
+          </>
+        ))
+      }
+    </div>
+    <Button className="btn--outline btn--tm w-full mt-12 lg:mt:20" text="показать больше отзывов" />
+  </div>
+</section>

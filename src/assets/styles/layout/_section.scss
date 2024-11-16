@@ -1,0 +1,23 @@
+section {
+  position: relative;
+  &[class*="bg-"] + &[class*="bg-"] {
+  }
+  &:not([class*="bg-"]) + &:not([class*="bg-"]) {
+  }
+  &.bg-black + &.bg-black {
+    padding-top: 0;
+  }
+  &:not(.hero):not(.error-hero) {
+    padding: pxToRem(120px) 0 pxToRem(80px);
+  }
+  @include min-1024 {
+    &:not(.hero):not(.error-hero) {
+      padding: pxToRem(200px) 0;
+    }
+  }
+}
+
+section.bg-black,
+section.bg-dark {
+  color: $color-white;
+}

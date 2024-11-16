@@ -1,0 +1,78 @@
+.toc {
+  display: flex;
+  flex-direction: column;
+  padding: pxToRem(24px);
+  border-radius: pxToRem(5px);
+  border: 1px solid $color-stroke-white-20;
+  color: $color-white;
+  &__title {
+    @include text-20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: pxToRem(2px);
+    @include max-1024 {
+      svg {
+        transition: $transition;
+      }
+      &[aria-expanded="true"] {
+        svg {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+    @include min-1024 {
+      margin-bottom: pxToRem(24px);
+      pointer-events: none;
+      svg {
+        display: none;
+      }
+    }
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(20px);
+    ul {
+      li {
+        a {
+          transition: $transition;
+        }
+        padding-left: pxToRem(12px);
+      }
+    }
+  }
+  .accordion-wrapper {
+    @include max-1024 {
+      &[aria-hidden="false"] {
+        margin-top: pxToRem(24px);
+      }
+    }
+    @include min-1024 {
+      opacity: 1;
+      grid-template-rows: 1fr;
+    }
+  }
+  @include min-1024 {
+    overflow-y: auto;
+    max-height: calc($height-100vh - $height-header - pxToRem(32px));
+    &::-webkit-scrollbar {
+      width: 5px;
+      border-radius: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      background: $color-black;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $color-white;
+    }
+    ul {
+      a {
+        color: $color-tonal-white-50;
+        &.is-active {
+          color: $color-white;
+        }
+      }
+    }
+  }
+}

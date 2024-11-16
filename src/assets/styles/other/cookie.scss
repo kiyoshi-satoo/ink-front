@@ -1,0 +1,273 @@
+// Constent Modal
+.cm {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-black;
+  color: $color-white;
+  z-index: 101;
+  transition: $transition;
+  &[aria-hidden="true"] {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    @include text-20;
+    margin-bottom: pxToRem(8px);
+  }
+  &__desc {
+    color: $color-tonal-white-50;
+  }
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(24px);
+  }
+  &__btn-group {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: pxToRem(8px);
+    button {
+      flex-grow: 1;
+    }
+  }
+  @include max-1024 {
+    padding: pxToRem(24px) pxToRem(16px);
+    &__btns {
+      margin-top: pxToRem(24px);
+    }
+  }
+  @include min-1024 {
+    padding: pxToRem(24px) pxToRem(36px);
+    &__body {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__btns {
+      flex-direction: row;
+    }
+    &__btn-group {
+      .btn {
+        min-width: pxToRem(148px);
+      }
+      &:last-child {
+        order: -1;
+      }
+    }
+  }
+}
+// Preferences Modal
+.pm {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: $height-100vh;
+  max-height: $height-100vh;
+  padding: pxToRem(24px) pxToRem(16px);
+  background-color: $color-black;
+  color: $color-white;
+  overflow-y: auto;
+  z-index: 102;
+  transition: $transition;
+  &[aria-hidden="true"] {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &__header {
+    display: flex;
+    padding-bottom: pxToRem(36px);
+    margin-bottom: pxToRem(36px);
+    position: relative;
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: $width-100vw;
+      height: 1px;
+      background-color: $color-stroke-white-20;
+    }
+  }
+  &__body {
+    margin-bottom: pxToRem(60px);
+  }
+  // Sections
+  &__section-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(24px);
+    & > div {
+      padding-bottom: pxToRem(16px);
+      border-bottom: 1px solid $color-stroke-white-10;
+    }
+  }
+  &__section-arrow {
+    display: none;
+    svg {
+      display: none;
+    }
+    &::before {
+      content: "";
+      display: block;
+      width: pxToRem(24px);
+      height: pxToRem(24px);
+      background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='white' stroke-opacity='0.5' stroke-linecap='square'/%3E%3C/svg%3E%0A");
+    }
+  }
+  &__section-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: pxToRem(4px);
+    justify-content: space-between;
+    margin-bottom: pxToRem(8px);
+    position: relative;
+    .pm__section-arrow {
+      order: -1;
+    }
+  }
+  &__section-title {
+    @include text-16;
+  }
+  &__section-desc {
+    @include text-14;
+    color: $color-tonal-white-50;
+  }
+  // Buttons
+  &__footer {
+    display: flex;
+    gap: pxToRem(24px);
+    margin-top: auto;
+  }
+  &__btn-group {
+    display: flex;
+    gap: pxToRem(8px);
+    button {
+      flex: 1 1 0px;
+    }
+  }
+  @include max-1024 {
+    &__header {
+      flex-direction: column;
+      gap: pxToRem(18px);
+      button {
+        order: -1;
+        align-self: flex-end;
+      }
+    }
+    &__footer {
+      flex-direction: column;
+    }
+  }
+  @include min-1024 {
+    padding: pxToRem(48px) pxToRem(36px) pxToRem(24px);
+    &__header {
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: pxToRem(18px);
+    }
+    &__body {
+      width: 100%;
+      max-width: pxToRem(732px);
+      margin-left: auto;
+    }
+    &__footer {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+    &__btn-group {
+      .btn {
+        min-width: pxToRem(252px);
+      }
+    }
+
+    // Sections
+    &__section-toggles {
+      gap: pxToRem(36px);
+      & > div {
+        padding-bottom: pxToRem(36px);
+      }
+    }
+    &__section-title {
+      @include text-20;
+    }
+    &__section-desc {
+      @include text-20;
+      max-width: pxToRem(560px);
+    }
+  }
+}
+// Checkbox
+.section__toggle-wrapper {
+  position: relative;
+  display: inline-flex;
+  width: pxToRem(28px);
+  height: pxToRem(28px);
+  cursor: pointer;
+  input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: pxToRem(28px);
+    height: pxToRem(28px);
+    z-index: 1;
+    cursor: pointer;
+    &:checked + .toggle__icon {
+      &::before {
+        opacity: 1;
+      }
+    }
+    &:disabled {
+      cursor: not-allowed;
+      & + .toggle__icon {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    }
+  }
+  .toggle__icon {
+    position: relative;
+    width: pxToRem(28px);
+    height: pxToRem(28px);
+    border-radius: pxToRem(3px);
+    border: 1px solid $color-stroke-white-20;
+    transition: $transition;
+    &::before {
+      content: "";
+      display: block;
+      width: pxToRem(8px);
+      height: pxToRem(8px);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      background-color: $color-white;
+      border-radius: 50%;
+      transition: inherit;
+    }
+    span {
+      display: none;
+    }
+  }
+  .toggle__label {
+    display: none;
+  }
+}

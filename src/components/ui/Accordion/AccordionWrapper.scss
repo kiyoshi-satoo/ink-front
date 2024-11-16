@@ -1,0 +1,23 @@
+.accordion-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  &,
+  & > * {
+    transition: all 300ms ease;
+  }
+
+  & > * {
+    overflow: hidden;
+  }
+  &[aria-hidden="false"] {
+    opacity: 1;
+    grid-template-rows: 1fr;
+  }
+  &[aria-hidden="true"] {
+    & > * {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

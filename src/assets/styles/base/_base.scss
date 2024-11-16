@@ -1,0 +1,38 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: $height-100vh;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: size-html($screen-393);
+  @include min-768 {
+    font-size: size-html($screen-768);
+  }
+  @include min-1024 {
+    font-size: size-html($screen-1536);
+  }
+  // @include min-1536 {
+  //   font-size: 16px;
+  // }
+}
+body {
+  position: relative;
+  font-family: $font-main;
+  color: $color-black;
+  background-color: $color-black;
+  font-kerning: none;
+  font-feature-settings:
+    "ss08" on,
+    "ss09" on,
+    "ss10" on,
+    "ss11" on,
+    "liga" off;
+}
+// @include min-1024 {
+//   body {
+//     cursor: none;
+//   }
+// }

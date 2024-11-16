@@ -1,0 +1,26 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "@components/ui/Button/Button";
+import ButtonSliced from "@components/ui/Button/ButtonSliced";
+---
+
+<section class="error-hero bg-dark">
+  <div class="container">
+    <div class="error-hero__wrapper">
+      <div class="error-hero__title">
+        <h1>404</h1>
+        <span></span>
+        <p>такой страницы <br /> не существует</p>
+      </div>
+      <div class="error-hero__bottom">
+        <p>возможно, вы неверно ввели адрес страницы. попробуйте снова или вернитесь на главную</p>
+        <ButtonSliced as="a" href={"/"}>
+          <Button as="div" className="btn--outline lg:min-w-[26.25rem] btn--tm" text="вернуться на главную" slot="content" />
+          <Button as="div" main={false} className="btn-icon btn-icon--s btn-icon--tm" slot="right">
+            <Icon name={"ArrowUpRight"} slot="content" />
+          </Button>
+        </ButtonSliced>
+      </div>
+    </div>
+  </div>
+</section>

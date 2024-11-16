@@ -1,0 +1,38 @@
+---
+import Button from "@components/ui/Button/Button";
+import ButtonSliced from "@components/ui/Button/ButtonSliced";
+import { Icon } from "astro-icon/components";
+import { FurnitureCaregoriesData } from "@data/cards";
+import CategoryCard from "@components/Cards/Funiture/CategoryCard";
+---
+
+<section class="bg-black">
+  <div class="container">
+    <h2 class="reveal-widget max-w-[74rem] mx-auto max-lg:text-seo-3">
+      <div class="text-center">мебель сomo. создана практикующими дизайнерами <span class="text-tonal-white-30"> из команды ink.</span></div>
+    </h2>
+  </div>
+  <div class="grid w-full gap-2 mt-8 lg:mt-20 lg:grid-cols-2">
+    {
+      (() => {
+        // Immediately Invoked Function Expression (IIFE):
+        let delay = 0;
+        return FurnitureCaregoriesData.map((data, index) => {
+          delay += 0.1;
+          return <CategoryCard {...data} data-appear-animation animationDelay={delay} />;
+        });
+      })()
+    }
+  </div>
+  <div class="container">
+    <div class="flex justify-between max-lg:flex-col gap-8 mt-12 lg:mt-20">
+      <p class="max-w-[29.25rem] lg:text-20" data-appear-animation>предлагаем стильные и функциональные решения для вашего пространства</p>
+      <ButtonSliced data-appear-animation data-appear-delay="0.1">
+        <Button as="div" className="btn--outline btn--tm lg:min-w-[26.25rem]" text="перейти на сайт" slot="content" />
+        <Button as="div" main={false} className="btn-icon btn-icon--s btn-icon--tm" slot="right">
+          <Icon name={"ArrowUpRight"} slot="content" />
+        </Button>
+      </ButtonSliced>
+    </div>
+  </div>
+</section>

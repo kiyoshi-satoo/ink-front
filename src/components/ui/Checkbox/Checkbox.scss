@@ -1,0 +1,72 @@
+.btn-checkbox {
+  position: relative;
+  display: inline-flex;
+  width: pxToRem(28px);
+  height: pxToRem(28px);
+  cursor: pointer;
+  input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: pxToRem(28px);
+    height: pxToRem(28px);
+    z-index: 1;
+    cursor: pointer;
+  }
+  span {
+    position: relative;
+    width: pxToRem(28px);
+    height: pxToRem(28px);
+    border-radius: pxToRem(3px);
+    border: 1px solid $color-stroke-white-20;
+    transition: $transition;
+    &::before {
+      content: "";
+      display: block;
+      width: pxToRem(8px);
+      height: pxToRem(8px);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      background-color: $color-white;
+      border-radius: 50%;
+      transition: inherit;
+    }
+  }
+  input:checked + span {
+    &::before {
+      opacity: 1;
+    }
+  }
+  input:disabled + span {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  &:disabled {
+    background: $color-stroke-white-20;
+    span::before {
+      background-color: $color-tonal-white-50;
+    }
+  }
+  &.has-error {
+    span {
+      border-color: #ff3f65 !important;
+    }
+  }
+  @include min-1024 {
+    width: pxToRem(32px);
+    height: pxToRem(32px);
+    span {
+      width: pxToRem(32px);
+      height: pxToRem(32px);
+      border-radius: pxToRem(5px);
+      &::before {
+        width: pxToRem(10px);
+        height: pxToRem(10px);
+      }
+    }
+  }
+}

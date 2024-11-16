@@ -1,0 +1,106 @@
+/*** Interior ***/
+.ineriors-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0 pxToRem(16px);
+  .interior:not(:first-child) {
+    & > .line:first-of-type {
+      display: none;
+    }
+  }
+  @include min-1024 {
+    padding: 0 pxToRem(36px);
+  }
+}
+.interior {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  user-select: none;
+  .line {
+    --line-progress: 0;
+    position: absolute;
+    display: block;
+    background-color: $color-stroke-white-20;
+  }
+  & > .line {
+    left: pxToRem(-16px);
+    width: $width-100vw;
+    height: 1px;
+    transform: scaleX(var(--line-progress));
+    transform-origin: 28% 50%;
+
+    &:first-of-type {
+      top: 0;
+    }
+    &:last-of-type {
+      bottom: 0;
+    }
+  }
+  small {
+    @include text-16;
+    display: block;
+    color: $color-tonal-white-50;
+  }
+  & > div {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  @include max-1024 {
+    padding: pxToRem(48px) 0;
+    & > div {
+      min-width: 0;
+      &:first-of-type {
+        small {
+          display: none;
+        }
+      }
+      &:last-of-type {
+        margin-top: pxToRem(20px);
+        small {
+          margin-top: pxToRem(20px);
+        }
+      }
+    }
+  }
+  @include min-1024 {
+    display: grid;
+    grid-template-columns: pxToRem(476px) 1fr;
+    gap: pxToRem(80px);
+    padding: pxToRem(80px) 0;
+    & > .line {
+      left: pxToRem(-36px);
+    }
+    & > div {
+      p{
+        @include text-20;
+      }
+      &:first-of-type {
+        position: relative;
+        min-height: calc(100vh - pxToRem(160px));
+        small {
+          margin-top: auto;
+        }
+        .line {
+          right: 0;
+          top: calc(pxToRem(-80px) + 1px);
+          height: calc(100% + pxToRem(160px) - 1px);
+          width: 1px;
+          transform: scaleY(var(--line-progress));
+          transform-origin: 0% 0%;
+        }
+      }
+      &:last-of-type {
+        align-items: center;
+        justify-content: center;
+        small {
+          display: none;
+        }
+      }
+    }
+    .video-widget {
+      max-height: pxToRem(552px);
+    }
+  }
+}

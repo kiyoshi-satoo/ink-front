@@ -1,0 +1,34 @@
+---
+import { getImageGlob } from "src/assets/js/utils/astro";
+import { Picture } from "astro:assets";
+import { TeamCardsData } from "@data/cards";
+const teamImage = getImageGlob(import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/Team/*"), "main.png");
+---
+
+<section class="bg-light-gray" id="team">
+  <div class="container">
+    <div class="grid items-start">
+      <h2 class="max-w-3xl mb-6 lg:mb-8" data-appear-animation data-appear-trigger="closest(section)">
+        от начала проекта до финальной реализации
+        <span class="text-tonal-black-30">отвечает одна команда</span>
+      </h2>
+      <p class="max-w-[29.75rem] lg:justify-self-end lg:col-start-2 lg:row-start-2 lg:text-20" data-appear-animation data-appear-trigger="closest(section)" data-appear-delay="0.3">
+        мы реализуем проект так, что вам не придется искать подрядчиков по отдельности
+      </p>
+    </div>
+  </div>
+  <div class="team-card-list mt-8 lg:mt-20">
+    {
+      TeamCardsData.map((data, index) => (
+        <Fragment>
+          <span class="line" data-line-animation />
+          <div class="team-card" data-line-animation>
+            <span>{data.title}</span>
+          </div>
+          {index === TeamCardsData.length && <span class="line" data-line-animation />}
+        </Fragment>
+      ))
+    }
+  </div>
+  <Picture src={teamImage} formats={["png", "webp"]} alt="Our Team" class="mt-8 lg:mt-5 w-full" />
+</section>

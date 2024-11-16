@@ -1,0 +1,29 @@
+.category-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: pxToRem(24px);
+  aspect-ratio: 391/221;
+  user-select: none;
+  picture {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    img {
+      height: 100%;
+    }
+  }
+  p {
+    margin-top: auto;
+    text-align: center;
+    position: relative;
+    color: $color-white;
+  }
+  @include min-1024 {
+	padding: pxToRem(36px);
+    p {
+      @include text-20;
+    }
+  }
+}

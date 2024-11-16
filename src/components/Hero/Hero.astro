@@ -1,0 +1,34 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="hero">
+  <figure class="hero__video">
+    <div class="hero__video-wrapper">
+      <div class="hero__video-wrapper-sticky">
+        <video
+          loop
+          muted
+          autoplay
+          playsinline
+          data-mobile="/media/mobileHero.mp4"
+          data-desktop="media/desktopHero.mp4"
+          data-mobile-poster="/media/heroVideoPoster.png"
+          data-desktop-poster="/media/heroVideoPoster.png"
+        >
+          <source id="video-source" src="" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </figure>
+  <div class="container">
+    <div class="hero__content">
+      <h1>команда архитекторов, дизайнеров и строителей</h1>
+      <div class="hero__line">
+        <p>проектируем, строим и полностью комплектуем объекты премиум-класса</p>
+        <a href="" class="link link--3 flex items-center gap-1.5 ">подробнее <Icon name={"ArrowDownRight"} /></a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+---
+import Button from "@components/ui/Button/Button";
+import ButtonSliced from "@components/ui/Button/ButtonSliced";
+import MainInput from "@components/ui/Inputs/MainInput";
+import { Icon } from "astro-icon/components";
+import Checkbox from "@components/ui/Checkbox/Checkbox";
+---
+
+<section class="bg-black" id="contact">
+  <div class="container">
+    <h2 data-appear-animation="">наши контакты</h2>
+  </div>
+  <div class="contact-card-list mt-8 lg:mt-20">
+    <span class="line" data-line-animation></span>
+    <div class="contact-card" data-line-animation>
+      <span>Санкт-Петербург</span>
+      <small>DAA Design District</small>
+    </div>
+    <span class="line" data-line-animation></span>
+    <div class="contact-card" data-line-animation>
+      <span>Москва</span>
+      <small>Moscow City, Башня Федерация</small>
+    </div>
+    <span class="line" data-line-animation></span>
+  </div>
+  <div class="container">
+    <div class="grid mt-20 lg:grid-cols-2">
+      <p class="lg:max-w-96 lg:text-20 max-lg:mb-8">оставьте заявку, и мы свяжемся с вами в мессенджере для обсуждения проекта</p>
+      <form id="myForm" novalidate class="lg:col-start-2 lg:row-span-2 lg:row-start-1">
+        <MainInput placeholder="имя" required={true} name="name" className="mb-8 lg:mb-12" />
+        <MainInput required={true} name="phone" data-tel-input="true" type="tel" placeholder="Телефон" type="text"  className="mb-8 lg:mb-12" />
+        <div class="flex items-center gap-4 mb-8 lg:mb-12">
+          <Checkbox name="policy" required={true} />
+          <p>я согласен с <a href="" class="link link--2">политикой конфиденциальности</a></p>
+        </div>
+        <ButtonSliced className="w-full">
+          <Button as="div" className="btn--outline btn--tm lg:w-full" text="оставить заявку" slot="content" />
+          <Button as="div" main={false} className="btn-icon btn-icon--s btn-icon--tm" slot="right">
+            <Icon name={"ArrowUpRight"} slot="content" />
+          </Button>
+        </ButtonSliced>
+      </form>
+      <ul class="flex flex-col gap-4 lg:col-start-1 lg:mt-auto max-lg:mt-20">
+        <li class="link link--3"><a href="" class="flex items-center gap-2 lg:text-20"><Icon name={"Social/Telegram"} /> написать в telegram</a></li>
+        <li class="link link--3"><a href="" class="flex items-center gap-2 lg:text-20"><Icon name={"Social/WhatsApp"} /> написать в whatsapp</a></li>
+      </ul>
+    </div>
+  </div>
+</section>

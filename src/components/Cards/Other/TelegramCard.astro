@@ -1,0 +1,16 @@
+---
+import type { TelegramCardType } from "@ctypes/cards";
+import { Icon } from "astro-icon/components";
+
+interface Props extends TelegramCardType {
+  index: number;
+}
+
+const { index, tag, text } = Astro.props;
+---
+
+<div class="telegram-card" data-appear-animation data-appear-direction="right" data-appear-delay={index * 0.2}>
+  <small>{tag}</small>
+  <p>{text}</p>
+  <a href="" class="link link--3">читать пост <Icon name={"ArrowUpRight"} /></a>
+</div>

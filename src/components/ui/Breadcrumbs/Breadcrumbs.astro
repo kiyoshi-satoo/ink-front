@@ -1,0 +1,26 @@
+---
+export interface Breadcrumb {
+  label: string;
+  url: string;
+}
+export interface Props {
+  items: Array<Breadcrumb>;
+  className?: string;
+}
+const { items, className } = Astro.props as Props;
+---
+
+<div class="breadcrumbs" class:list={[className]}>
+  <ul class="breadcrumbs__list" vocab="http://schema.org/" typeof="BreadcrumbList">
+    {
+      items.map((item, indx) => (
+        <li property="itemListElement" typeof="ListItem">
+          <a property="item" typeof="WebPage" href={item.url}>
+            <span property="name" set:html={item.label} />
+          </a>
+          <meta property="position" content={(indx + 1).toString()} />
+        </li>
+      ))
+    }
+  </ul>
+</div>

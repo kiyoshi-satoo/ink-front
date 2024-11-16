@@ -1,0 +1,27 @@
+---
+import Button from "@components/ui/Button/Button";
+import TelegramCard from "@components/Cards/Other/TelegramCard";
+import { TelegramCardsData } from "@data/cards";
+---
+
+<section class="bg-black">
+  <div class="container">
+    <div class="grid lg:grid-cols-2">
+      <h2 class="text-center lg:col-span-2 whitespace-pre-line">следите за нами &#10; <span class="text-tonal-white-30">в telegram канале</span></h2>
+      <div class="flex max-lg:flex-col lg:col-start-2 lg:items-end gap-12 justify-between items-center mt-12 min-w-0">
+        <span data-line-animation class="line h-[7.5rem] lg:h-[15.5rem] block bg-black origin-top" style="width: 1px;background: rgba(255, 255, 255, 0.20);transform: scaleY(var(--line-progress));"></span>
+        <div class="flex flex-col gap-[1.25rem] lg:w-[29.75rem] lg:mb-[1.75rem]">
+          <div class="flex flex-col gap-1 max-lg:items-center">
+            <p class="text-26 lg:text-40"><span data-counter-animation="[0,14000]"></span> +</p>
+            <small class="lg:text-20 text-tonal-white-50">подписчиков</small>
+          </div>
+          <p class="whitespace-pre-line max-lg:text-center lg:text-20" data-appear-animation>показываем наши проекты и делимся &#10; полезной информацией</p>
+        </div>
+      </div>
+    </div>
+    <div class="grid gap-2 lg:grid-cols-3 mt-12">
+      {TelegramCardsData.map((data, index) => <TelegramCard {...{ ...data, index }} />)}
+    </div>
+    <Button className="btn--outline btn--tm w-full mt-12 lg:mt-20" text="перейти в телеграм" data-appear-animation data-appear-direction="up" />
+  </div>
+</section>

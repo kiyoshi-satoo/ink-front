@@ -1,0 +1,21 @@
+---
+export interface Props {
+  id?: string;
+  name?: string;
+  label?: string;
+  placeholder?: string;
+  is_readonly?: Boolean;
+  is_disabled?: Boolean;
+  classes?: String;
+  required?: Boolean;
+  rows?: string;
+  cols?: string;
+}
+const { id, name, label, placeholder = label, required = false, is_readonly = false, is_disabled = false, classes, rows, cols } = Astro.props as Props;
+---
+
+<div class:list={["main-input", { "is-readonly": is_readonly, "is-disabled": is_disabled }, classes]}>
+  <div>
+    <textarea rows={rows} cols={cols} name={name} id={id} placeholder={placeholder} required={required === true ? "required" : undefined}></textarea>
+  </div>
+</div>

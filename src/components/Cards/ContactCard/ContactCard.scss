@@ -1,0 +1,82 @@
+.contact-card-list {
+  display: grid;
+  counter-reset: team-card-list;
+  .line {
+    --line-progress: 0;
+    background-color: $color-stroke-white-20;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(var(--line-progress));
+  }
+  .contact-card {
+    counter-increment: team-card-list;
+    position: relative;
+  }
+  @include min-1024 {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(pxToRem(700px), 1fr));
+    .line {
+      position: absolute;
+      &:not(:first-of-type):not(:last-of-type) {
+        display: none;
+        left: 0;
+      }
+      &:first-of-type {
+        top: 0;
+      }
+      &:last-of-type {
+        bottom: 0;
+      }
+    }
+    .contact-card {
+      // Borders
+      &:not(:last-of-type):not(:nth-of-type(2n)),
+      &:nth-of-type(2n + 3) {
+        position: relative;
+        --line-progress: 1;
+        &::after {
+          content: "";
+          position: absolute;
+          background-color: $color-stroke-white-20;
+          right: 0;
+          top: 0;
+          width: 1px;
+          height: 100%;
+          transform: scaleY(var(--line-progress));
+        }
+      }
+      // Line helper
+      &:nth-of-type(2n) {
+        & + .line {
+          display: block;
+          position: relative;
+          grid-column: span 2;
+        }
+      }
+    }
+  }
+}
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(8px);
+  small {
+    opacity: 0.5;
+  }
+  @include max-1024 {
+    height: pxToRem(116px);
+    padding: pxToRem(36px) pxToRem(16px);
+    span {
+      max-width: pxToRem(218px);
+    }
+  }
+  @include min-1024 {
+    height: pxToRem(146px);
+    padding: pxToRem(48px) pxToRem(36px);
+    @include text-20;
+    span {
+      max-width: pxToRem(262px);
+    }
+  }
+}

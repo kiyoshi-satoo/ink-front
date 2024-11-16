@@ -1,0 +1,111 @@
+---
+import MainInput from "@components/ui/Inputs/MainInput";
+import { Icon } from "astro-icon/components";
+import Checkbox from "@components/ui/Checkbox/Checkbox";
+import Button from "@components/ui/Button/Button";
+import ButtonSliced from "@components/ui/Button/ButtonSliced";
+---
+
+<div class="quiz-widget">
+  <div class="quiz-widget__content">
+    <div class="quiz-widget__steps-wrapper">
+      <div class="quiz-widget__steps">
+        <div class="quiz-widget__step">
+          <h2 class="max-w-3xl whitespace-pre-line">выберите,&#10; что вас интересует</h2>
+        </div>
+        <div class="quiz-widget__step">
+          <h2 class="max-w-3xl whitespace-pre-line">в каком городе &#10; предстоят работы?</h2>
+        </div>
+        <div class="quiz-widget__step">
+          <h2 class="max-w-3xl whitespace-pre-line">какая примерная &#10; общая площадь помещений?</h2>
+        </div>
+        <div class="quiz-widget__step">
+          <h2 class="max-w-3xl whitespace-pre-line">давайте обсудим &#10; ваш проект</h2>
+        </div>
+      </div>
+    </div>
+    <div class="quiz-widget__progress progress-widget">
+      (
+      <div>
+        <p>1</p>
+        <span></span>
+        <p>4</p>
+      </div>
+      )
+    </div>
+    <div class="quiz-widget__steps-wrapper">
+      <form novalidate class="quiz-widget__steps" id="quizForm">
+        <div class="quiz-widget__step">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
+            <div class="quiz-card">
+              <Checkbox name="interestToggler" value="дизайн-проект" type="radio" />
+              дизайн-проект
+            </div>
+            <div class="quiz-card">
+              <Checkbox name="interestToggler" value="проект дома" type="radio" />
+              проект дома
+            </div>
+            <div class="quiz-card">
+              <Checkbox name="interestToggler" value="строительно-отделочные работы" type="radio" />
+              строительно-отделочные работы
+            </div>
+            <div class="quiz-card">
+              <Checkbox name="interestToggler" value="null" type="radio" />
+              другое
+            </div>
+          </div>
+          <MainInput data-show-if="interestToggler,null" placeholder="введите свой вариант" required={true} name="interest" className="mt-8 max-w-[45.5rem]" />
+        </div>
+        <div class="quiz-widget__step">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
+            <div class="quiz-card">
+              <Checkbox name="locationToggler" value="Москва" type="radio" />
+              Москва
+            </div>
+            <div class="quiz-card">
+              <Checkbox name="locationToggler" value="Санкт-Петербург" type="radio" />
+              Санкт-Петербург
+            </div>
+            <div class="quiz-card">
+              <Checkbox name="locationToggler" value="null" type="radio" />
+              другой
+            </div>
+          </div>
+          <MainInput data-show-if="locationToggler,null" placeholder="введите свой вариант" required={true} name="location" className="mt-8 max-w-[45.5rem]" />
+        </div>
+        <div class="quiz-widget__step">
+          <MainInput placeholder="введите площадь" required={true} name="yard" className="max-w-[45.5rem]" />
+        </div>
+        <div class="quiz-widget__step">
+          <div class="grid lg:grid-cols-2">
+            <p class="lg:max-w-96 lg:text-20 max-lg:mb-8">оставьте заявку, и мы свяжемся с вами в мессенджере для обсуждения проекта</p>
+            <div>
+              <MainInput placeholder="имя" required={true} name="name" className="mb-8 lg:mb-12" />
+              <MainInput placeholder="телефон" required={true} name="phone" data-tel-input="true" type="tel" className="mb-8 lg:mb-12" />
+              <div class="flex items-center gap-4 mb-8 lg:mb-12">
+                <Checkbox name="policy" required={true} />
+                <p>я согласен с <a href="" class="link link--2">политикой конфиденциальности</a></p>
+              </div>
+              <ButtonSliced className="w-full" type="submit">
+                <Button as="div" className="btn--outline btn--tm lg:w-full" text="оставить заявку" slot="content" />
+                <Button as="div" main={false} className="btn-icon btn-icon--s  btn-icon--tm" slot="right">
+                  <Icon name={"ArrowUpRight"} slot="content" />
+                </Button>
+              </ButtonSliced>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="quiz-widget__nav">
+    <button class="quiz-widget__prev">
+      <Icon name={"ArrowLeft"} />
+      назад
+    </button>
+    <button class="quiz-widget__next">
+      далее
+      <Icon name={"ArrowRight"} />
+    </button>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+---
+import type { FurnitureCategoryCardType } from "@ctypes/cards.d";
+
+import { Picture } from "astro:assets";
+
+interface Props extends FurnitureCategoryCardType {
+  animationDelay: number;
+}
+const { title, image, animationDelay } = Astro.props;
+---
+
+<div class="category-card" data-appear-animation data-appear-delay={animationDelay}>
+  <Picture src={image} formats={["jpeg", "webp"]} alt={title} />
+  <p>{title}</p>
+</div>

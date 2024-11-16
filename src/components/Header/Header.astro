@@ -1,0 +1,42 @@
+---
+// Components
+import { Icon } from "astro-icon/components";
+import logo from "../../assets/images/logo.svg";
+import Button from "@components/ui/Button/Button";
+import ButtonSliced from "@components/ui/Button/ButtonSliced";
+// Astro
+import { Image } from "astro:assets";
+---
+
+<header class="header">
+  <div class="container">
+    <div class="header__content">
+      <a href="/" class="header__logo">
+        <Image src={logo} alt="logo" loading="eager" />
+      </a>
+      <div class="header__menu-wrapper" data-lenis-prevent>
+        <nav class="header__menu">
+          <ul>
+            <li class="link link--3"><a href="/#projects">проекты</a></li>
+            <li class="link link--3"><a href="#services">услуги и цены</a></li>
+            <li class="link link--3"><a href="#youtube">наш YouTube</a></li>
+            <li class="link link--3"><a href="#team">о команде</a></li>
+            <li class="link link--3"><a href="#vacancies">вакансии</a></li>
+          </ul>
+        </nav>
+        <ul class="flex flex-col gap-4">
+          <li class="link link--3"><a href="" class="flex items-center gap-2"><Icon name={"Social/Telegram"} /> написать в telegram</a></li>
+          <li class="link link--3"><a href="" class="flex items-center gap-2"><Icon name={"Social/WhatsApp"} /> написать в whatsapp</a></li>
+        </ul>
+        <ButtonSliced>
+          <Button as="div" className="btn--outline" text="хочу проект" slot="content" />
+          <Button as="div" main={false} className="btn-icon btn-icon--s" slot="right">
+            <Icon name={"ArrowUpRight"} slot="content" />
+          </Button>
+        </ButtonSliced>
+      </div>
+
+      <button class="header__burger"></button>
+    </div>
+  </div>
+</header>

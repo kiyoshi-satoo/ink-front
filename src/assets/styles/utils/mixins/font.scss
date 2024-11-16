@@ -1,0 +1,105 @@
+//*** Seo Headings ***//
+@mixin seo-heading {
+  font-weight: 500;
+}
+
+// Mobile
+@mixin seo-heading-1 {
+  @include seo-heading;
+  font-size: pxToRem(42px);
+  line-height: 0.87;
+  letter-spacing: -0.04em;
+}
+@mixin seo-heading-2 {
+  @include seo-heading;
+  font-size: pxToRem(32px);
+  line-height: 0.875;
+  letter-spacing: -1.28px;
+}
+@mixin seo-heading-3 {
+  @include seo-heading;
+  font-size: pxToRem(26px);
+  line-height: 0.92308;
+  letter-spacing: -0.52px;
+}
+
+// Desktop
+@mixin seo-heading-1-dp {
+  @include seo-heading;
+  font-size: pxToRem(76px);
+  line-height: 0.84211;
+  letter-spacing: -3.04px;
+}
+@mixin seo-heading-2-dp {
+  @include seo-heading;
+  font-size: pxToRem(56px);
+  line-height: 0.85714;
+  letter-spacing: -2.24px;
+}
+@mixin seo-heading-3-dp {
+  @include seo-heading;
+  font-size: pxToRem(40px);
+  line-height: 0.9;
+  letter-spacing: -1.6px;
+}
+/***/
+
+//*** Headings ***//
+@mixin heading {
+  font-style: normal;
+  font-weight: 500;
+}
+/***/
+
+//*** Text ***//
+@mixin text {
+  font-style: normal;
+  font-weight: 400;
+}
+@mixin text-40 {
+  @include text;
+  font-size: pxToRem(40px);
+  line-height: 0.9;
+  letter-spacing: -1.6px;
+}
+@mixin text-28 {
+  @include text;
+  font-size: pxToRem(28px);
+  line-height: 1.14286;
+}
+@mixin text-26 {
+  @include text;
+  font-size: pxToRem(26px);
+  line-height: 0.92308;
+  letter-spacing: -0.52px;
+}
+@mixin text-24 {
+  @include text;
+  font-size: pxToRem(24px);
+  line-height: 1.08333;
+  letter-spacing: -0.48px;
+}
+@mixin text-20 {
+  @include text;
+  font-size: pxToRem(20px);
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+}
+@mixin text-20-alt {
+  @include text;
+  font-size: pxToRem(20px);
+  line-height: 1.3;
+  letter-spacing: -0.4px;
+}
+@mixin text-16 {
+  @include text;
+  font-size: pxToRem(16px);
+  line-height: 1.125;
+}
+@mixin text-14 {
+  @include text;
+  font-size: pxToRem(14px);
+  line-height: 1.28571;
+}
+
+/***/

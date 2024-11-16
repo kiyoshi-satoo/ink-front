@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  padding-left: pxToRem(16px);
+  padding-right: pxToRem(16px);
+  margin-left: auto;
+  margin-right: auto;
+  @include min-1024 {
+    padding-left: pxToRem(36px);
+    padding-right: pxToRem(36px);
+  }
+}
+
+.content-block {
+  display: flex;
+  &__aside {
+  }
+  &__main {
+  }
+  @include max-1024 {
+    flex-direction: column;
+    gap: pxToRem(48px);
+  }
+  @include min-1024 {
+    justify-content: space-between;
+    &__aside {
+      position: sticky;
+      top: $height-header;
+      height: 100%;
+      max-height: calc($height-100vh - $height-header - pxToRem(32px));
+      min-width: pxToRem(360px);
+      width: pxToRem(360px);
+    }
+    &__main {
+      min-width: pxToRem(732px);
+      width: pxToRem(732px);
+    }
+  }
+}

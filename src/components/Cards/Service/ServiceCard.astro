@@ -1,0 +1,29 @@
+---
+// Types
+import type { ServiceCardType } from "@ctypes/service";
+// Components
+import Button from "@components/ui/Button/Button";
+import ButtonSliced from "@components/ui/Button/ButtonSliced";
+import { Icon } from "astro-icon/components";
+interface Props extends ServiceCardType {
+  index: number;
+}
+
+const { index, number, title, price, button, info } = Astro.props;
+---
+
+<div class="service-card" data-appear-animation data-appear-direction="right" data-appear-delay={index * 0.2}>
+  <span>{number}</span>
+  <b>{title}</b>
+  <div class="service-card__price">
+    {price.current}
+    {price.old && <small>{price.old}</small>}
+  </div>
+  <ButtonSliced as="a" href={button.href}>
+    <Button as="div" className="btn--outline btn--tm w-full" text={button.text} slot="content" />
+    <Button as="div" main={false} className="btn-icon btn-icon--s btn-icon--tm" slot="right">
+      <Icon name={"ArrowUpRight"} slot="content" />
+    </Button>
+  </ButtonSliced>
+  <small set:html={info} />
+</div>

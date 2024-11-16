@@ -1,0 +1,21 @@
+// Font
+$default-font-size: 16px;
+$font-main: "Gilroy", sans-serif;
+
+// Screen sizes
+$screen-1920: 1920px;
+$screen-1536: 1536px;
+$screen-1200: 1200px;
+$screen-1024: 1024px;
+$screen-768: 768px;
+$screen-576: 576px;
+$screen-414: 414px;
+$screen-393: 393px;
+$screen-375: 375px;
+
+// Other
+$transition: all 0.3s ease;
+$height-100vh: calc(100 * var(--doc-height, 1vh));
+$width-100vw: calc(100 * var(--doc-width, 1vw));
+$height-header: var(--header-height);
+$height-footer: var(--footer-height);

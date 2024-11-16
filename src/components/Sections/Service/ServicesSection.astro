@@ -1,0 +1,22 @@
+---
+import ServiceCard from "@components/Cards/Service/ServiceCard";
+import { ServiceCardsData } from "@data/services";
+---
+
+<section class="bg-dark" id="services">
+  <div class="container">
+    <h2 data-appear-animation data-appear-trigger="closest(section)">наши услуги</h2>
+    <div class="grid gap-2 mt-12 lg:mt-20 lg:grid-cols-3">
+      {ServiceCardsData.map((data, index) => <ServiceCard {...{ ...data, index }} />)}
+    </div>
+
+    <div class="flex max-lg:flex-col justify-between mt-12 lg:mt-20">
+      <h3 class="max-w-3xl max-lg:mb-6" data-appear-animation>
+        большинство наших заказчиков знакомятся с бюро за 4–6 месяцев <span class="text-tonal-white-30"> до получения ключей</span>
+      </h3>
+      <p class="max-w-[29.75rem] lg:order-last lg:justify-self-end lg:col-start-2 lg:text-20" data-appear-animation data-appear-delay="0.1">
+        в итоге вы получите квартиру, в которую можно сразу заехать и жить. останется только перевезти ваши вещи, питомца и устроить новоселье
+      </p>
+    </div>
+  </div>
+</section>

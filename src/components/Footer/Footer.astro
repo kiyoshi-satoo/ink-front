@@ -1,0 +1,52 @@
+---
+// Components
+import { Icon } from "astro-icon/components";
+import logo from "@images/logo.svg";
+import affarts from "@images/affarts.png";
+// Astro
+import { Image } from "astro:assets";
+---
+
+<footer class="footer bg-dark">
+  <div class="container">
+    <div class="flex flex-col grow lg:grid lg:grid-cols-2 lg:mb-20">
+      <a href="/">
+        <Image src={logo} alt="logo" loading="eager" class="w-15 lg:w-20" />
+      </a>
+      <div class="max-lg:mt-20 flex flex-col grow">
+        <nav class="flex flex-wrap gap-20">
+          <ul class="flex flex-col gap-4 lg:gap-5 lg:w-[15rem]">
+            <li><a href="#projects" class="link link--3 lg:text-20">проекты</a></li>
+            <li><a href="#services" class="link link--3 lg:text-20">услуги и цены</a></li>
+            <li><a href="#youtube" class="link link--3 lg:text-20">наш YouTube</a></li>
+          </ul>
+          <ul class="flex flex-col gap-4 lg:gap-5 lg:w-[15rem]">
+            <li><a href="#team" class="link link--3 lg:text-20">о команде</a></li>
+            <li><a href="#vacancies" class="link link--3 lg:text-20">вакансии</a></li>
+          </ul>
+        </nav>
+        <div class="flex justify-between items-end max-lg:mt-auto max-lg:mb-8 lg:mt-[7.5rem]">
+          <div class="flex gap-[1.25rem]">
+            <a href="" class="inline-flex hover:opacity-50 transition ease-in-out"><Icon name={"Social/Vk"} class="w-5 lg:w-6 h-auto" /></a>
+            <a href="" class="inline-flex hover:opacity-50 transition ease-in-out"><Icon name={"Social/YouTube"} class="w-5 lg:w-6 h-auto" /></a>
+            <a href="" class="inline-flex hover:opacity-50 transition ease-in-out"><Icon name={"Social/Telegram"} class="w-5 lg:w-6 h-auto" /></a>
+          </div>
+          <button data-scroll-top class="flex item-center gap-[0.375rem]">наверх <Icon name={"ArrowUp"} class="opacity-50" /></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="line"></span>
+  <div class="container">
+    <div class="grid gap-3 items-center lg:grid-cols-2 mt-12 lg:mt-6">
+      <p class="text-14 lg:text-16">Все права защищены, 2024</p>
+      <div class="flex gap-3 max-lg:flex-col lg:justify-between lg:items-center">
+        <a href="" class="link link--4 text-14 lg:text-16">Политика конфиденциальности</a>
+        <a href="https://affarts.com/en/?utm_source=affarts&utm_medium=beydzh&utm_campaign=ink" class="flex gap-2 items-center text-14 lg:text-16">
+          Сайт сделан в
+          <Image src={affarts} alt="Affarts" class="w-12 lg:w-15" />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

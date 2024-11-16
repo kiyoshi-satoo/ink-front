@@ -1,0 +1,40 @@
+---
+import Button from "@components/ui/Button/Button";
+import { CaseScreensData } from "@data/case";
+import CaseScreen from "@components/Cards/Case/CaseScreen";
+---
+
+<section class="bg-black" id="projects">
+  <div class="container">
+    <div class="grid items-start">
+      <h2 class="max-w-3xl mb-6 lg:mb-8" data-appear-animation data-appear-trigger="closest(section)">
+        мы однозначно та компания, которая
+        <span class="text-tonal-white-30"> полностью реализует ваш интерьер</span>
+      </h2>
+      <p class="max-w-[29.75rem] lg:order-last lg:justify-self-end lg:col-start-2 lg:text-20" data-appear-animation data-appear-trigger="closest(section)" data-appear-delay="0.3">
+        в итоге вы получите квартиру, в которую можно сразу заехать и жить. останется только перевезти ваши вещи, питомца и устроить новоселье
+      </p>
+      <div data-progress-animation class="progress-widget max-lg:mt-8 lg:justify-self-end lg:col-start-2">
+        (
+        <div>
+          <p>0</p>
+          <span></span>
+          100%
+        </div>
+        )
+      </div>
+    </div>
+  </div>
+  <div class="case-screen-wrapper mt-12 lg:mt-20">
+    {
+      CaseScreensData.map((data) => (
+        <>
+          <CaseScreen {...data} />
+        </>
+      ))
+    }
+    <div class="container">
+      <Button className="btn--outline btn--tm w-full mt-12 lg:mt-20 " text="все проекты" />
+    </div>
+  </div>
+</section>

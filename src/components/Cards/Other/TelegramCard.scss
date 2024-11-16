@@ -1,0 +1,33 @@
+.telegram-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: pxToRem(5px);
+  border: 1px solid $color-stroke-white-20;
+  padding: pxToRem(24px);
+  small {
+    display: block;
+    margin-bottom: pxToRem(48px);
+    color: $color-tonal-white-50;
+    @include text-16;
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: pxToRem(6px);
+    margin-top: pxToRem(24px);
+  }
+  p {
+    margin-top: auto;
+  }
+  @include min-1024 {
+    padding: pxToRem(36px);
+    min-height: pxToRem(335px);
+    p {
+      @include text-20;
+    }
+    a {
+      margin-top: pxToRem(48px);
+    }
+
+  }
+}

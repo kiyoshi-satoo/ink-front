@@ -1,0 +1,97 @@
+/*** Quiz ***/
+.quiz-widget {
+  display: flex;
+  flex-direction: column;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(36px);
+  }
+  &__steps-wrapper {
+    display: flex;
+    margin-bottom: pxToRem(36px);
+    min-width: calc(100% + pxToRem(32px));
+    max-width: calc(100% + pxToRem(32px));
+    gap: pxToRem(32px);
+    padding: 0 pxToRem(16px);
+    margin: 0 pxToRem(-16px);
+    overflow: hidden;
+  }
+  &__steps {
+    display: flex;
+    min-width: 0;
+    width: 100%;
+  }
+  &__step {
+    flex: 0 0 100%;
+  }
+  &__nav {
+    margin-top: pxToRem(24px);
+    display: flex;
+    justify-content: space-between;
+    button {
+      display: inline-flex;
+      align-items: center;
+      gap: pxToRem(8px);
+      &:last-of-type {
+        margin-left: auto;
+      }
+      svg {
+        width: pxToRem(16px);
+        height: auto;
+      }
+    }
+  }
+
+  @include max-1024 {
+    &__content {
+      gap: pxToRem(36px);
+    }
+    &__progress {
+      margin-bottom: pxToRem(12px);
+    }
+  }
+  @include min-1024 {
+    position: relative;
+    &__content {
+      gap: pxToRem(80px);
+    }
+    &__steps-wrapper {
+      min-width: calc(100% + pxToRem(72px));
+      max-width: calc(100% + pxToRem(72px));
+      padding: 0 pxToRem(36px);
+      margin: 0 pxToRem(-36px);
+    }
+    &__progress {
+      margin-top: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+}
+.quiz-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: pxToRem(5px);
+  border: 1px solid $color-stroke-white-20;
+  cursor: pointer;
+  position: relative;
+  .btn-checkbox {
+    position: unset;
+    input {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+  @include max-1024 {
+    min-height: pxToRem(140px);
+    padding: pxToRem(16px);
+  }
+  @include min-1024 {
+    @include text-20;
+    min-height: pxToRem(290px);
+    padding: pxToRem(36px);
+  }
+}

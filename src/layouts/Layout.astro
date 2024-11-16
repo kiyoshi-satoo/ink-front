@@ -1,0 +1,65 @@
+---
+import "../assets/styles/main.scss";
+
+interface Props {
+  title: string;
+}
+
+import Header from "../components/Header/Header.astro";
+import Footer from "../components/Footer/Footer.astro";
+import MainMessage from "@components/Other/Message/MainMessage";
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Разрабатываем кастомные решения, основанные на дизайн-системах. Веб дизайн с фокусом на smooth user experience вашего продукта." />
+    <meta name="robots" content="noindex,nofollow " />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href="https://affarts.ru/" />
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://affarts.ru/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Affarts - UX/UI, Дизайн, Разработка для ваших продуктов" />
+    <meta property="og:description" content="Разрабатываем кастомные решения, основанные на дизайн-системах. Веб дизайн с фокусом на smooth user experience вашего продукта." />
+    <meta property="og:image" content="/og.jpg" />
+    <!-- END Facebook Meta Tags -->
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="affarts.ru" />
+    <meta property="twitter:url" content="https://affarts.ru/" />
+    <meta name="twitter:title" content="Affarts - UX/UI, Дизайн, Разработка для ваших продуктов" />
+    <meta name="twitter:description" content="Разрабатываем кастомные решения, основанные на дизайн-системах. Веб дизайн с фокусом на smooth user experience вашего продукта." />
+    <meta name="twitter:image" content="/og.jpg" />
+    <!-- END Twitter Meta Tags -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Ink" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- End Favicon -->
+
+    <title>{title}</title>
+    <!-- <link rel="preload" href="/fonts/ALSHauss-Regular.woff2" as="font" crossorigin="anonymous" /> -->
+  </head>
+
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+    <MainMessage />
+    <div class="cursor-outline"></div>
+    <div class="cursor-dot"></div>
+  </body>
+
+  <script>
+    import "../assets/js/Main";
+  </script>
+</html>

@@ -1,0 +1,16 @@
+{
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "verbatimModuleSyntax": true,
+    "paths": {
+      "@components/*": ["src/components/*.astro"],
+      "@layouts/*": ["src/layouts/*.astro"],
+      "@ui/*": ["src/ui/*.astro"],
+      "@views/*": ["src/views/*.astro"],
+      "@images/*": ["src/assets/images/*"],
+      "@data/*": ["src/core/data/*.ts"],
+      "@ctypes/*": ["src/core/types/*.ts"]
+    }
+  }
+}

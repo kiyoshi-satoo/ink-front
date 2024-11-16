@@ -1,0 +1,16 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { maxHeightDesktop = "300px", maxHeightMobile = "150px", initialExpanded = false } = Astro.props;
+---
+
+<div class="sh-more-wrapper">
+  <div class="sh-more-container" data-max-height-mobile={maxHeightMobile.replace("px", "")} data-max-height-desktop={maxHeightDesktop.replace("px", "")} data-initial-expanded={initialExpanded}>
+    <slot />
+  </div>
+  <button class="sh-more-button more-link more-link--stl">
+    <span> cкрыть </span>
+    <span> показать еще </span>
+    <Icon name={"General/Arrow Chevron Bottom"} />
+  </button>
+</div>

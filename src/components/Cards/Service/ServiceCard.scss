@@ -1,0 +1,70 @@
+.service-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: pxToRem(5px);
+  border: 1px solid $color-stroke-white-20;
+  & > span {
+    display: block;
+    color: $color-tonal-white-50;
+  }
+  b {
+    display: block;
+  }
+  &__price {
+    display: flex;
+    align-items: flex-start;
+    gap: pxToRem(16px);
+    @include text-24;
+    small {
+      @include text-16;
+      color: $color-tonal-white-50;
+      text-decoration: line-through;
+    }
+  }
+  .btn-sliced {
+    margin-top: pxToRem(48px);
+    width: 100%;
+  }
+  & > small {
+    @include text-16;
+    display: block;
+    color: $color-tonal-white-50;
+    margin-top: pxToRem(20px);
+  }
+  @include max-1024 {
+    & > span {
+      @include text-14;
+      margin-bottom: pxToRem(20px);
+    }
+    & > b {
+      @include text-24;
+      margin-bottom: pxToRem(80px);
+    }
+    padding: pxToRem(24px);
+  }
+  @include min-1024 {
+    & > span {
+      @include text-16;
+      margin-bottom: pxToRem(24px);
+    }
+    & > b {
+      margin-bottom: auto;
+      @include text-28;
+    }
+    &__price {
+      gap: pxToRem(20px);
+      @include text-28;
+      small {
+        @include text-20;
+      }
+    }
+    .btn-sliced {
+      margin-top: pxToRem(120px);
+    }
+    & > small {
+      min-height: pxToRem(18px);
+    }
+    padding: pxToRem(36px);
+    min-height: pxToRem(648px);
+  }
+}

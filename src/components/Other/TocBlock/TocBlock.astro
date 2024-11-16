@@ -1,0 +1,21 @@
+---
+export interface Props {
+  data: string[];
+}
+const { data } = Astro.props;
+---
+
+<div class="toc-block">
+  <b class="toc-block__title">Table of Contents</b>
+  <nav>
+    <ul>
+      {
+        data.map((text) => (
+          <li>
+            <a href="">{text}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</div>

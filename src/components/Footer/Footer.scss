@@ -1,0 +1,26 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: pxToRem(80px) 0 pxToRem(36px);
+  color: $color-tonal-white-50;
+  .line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: $color-stroke-white-20;
+  }
+  @include max-1024 {
+    .container:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      flex: 1;
+    }
+    padding: pxToRem(80px) 0 pxToRem(36px);
+    min-height: $height-100vh;
+  }
+  @include min-1024 {
+    padding: pxToRem(80px) 0 pxToRem(24px);
+  }
+}

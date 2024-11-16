@@ -1,0 +1,72 @@
+.review-card-list {
+  display: flex;
+  flex-direction: column;
+  .review-card {
+    position: relative;
+    --line-progress: 0;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: $width-100vw;
+      height: 1px;
+      left: 50%;
+      background-color: $color-stroke-white-20;
+      transform: scaleX(var(--line-progress)) translateX(-50%);
+      transform-origin: -100% 0%;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    &:not(:last-child) {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+.review-card {
+  display: grid;
+  padding: pxToRem(48px) 0;
+  small {
+    @include text-14;
+    display: block;
+    margin-bottom: pxToRem(24px);
+    color: $color-tonal-white-50;
+  }
+  .user-widget {
+    gap: pxToRem(12px);
+    margin-top: pxToRem(36px);
+    picture {
+      width: pxToRem(36px);
+      height: pxToRem(36px);
+    }
+    p {
+      grid-row: 1/3;
+      align-self: center;
+    }
+  }
+  @include min-1024 {
+    grid-template-columns: repeat(2, 1fr);
+    .sh-more-wrapper {
+      grid-row: 1/3;
+      grid-column: 2;
+      p {
+        @include text-20-alt;
+      }
+    }
+    .user-widget {
+      gap: pxToRem(16px);
+      align-content: flex-end;
+      picture {
+        width: pxToRem(42px);
+        height: pxToRem(42px);
+      }
+    }
+  }
+}
+

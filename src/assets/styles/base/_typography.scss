@@ -1,0 +1,90 @@
+h1,
+.h1 {
+  @include seo-heading-1;
+}
+h2,
+.h2 {
+  @include seo-heading-2;
+}
+h3,
+.h3 {
+  @include seo-heading-3;
+}
+@media screen and (min-width: $screen-1024) {
+  h1,
+  .h1 {
+    @include seo-heading-1-dp;
+  }
+  h2,
+  .h2 {
+    @include seo-heading-2-dp;
+  }
+  h3,
+  .h3 {
+    @include seo-heading-3-dp;
+  }
+}
+
+/*** Links ***/
+.link {
+  transition: $transition;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: $color-stroke-black;
+  text-decoration-skip-ink: auto; // Добавляем это свойство для улучшения рендеринга подчеркиваний
+  svg {
+    transition: $transition;
+  }
+  &:hover {
+    color: $color-tonal-black-50;
+    text-decoration-color: transparent;
+    svg {
+      opacity: 0.5;
+    }
+  }
+  // From Black to Tonal Black(50%) without underline
+  &--1 {
+    color: $color-black-bg;
+    text-decoration-color: transparent;
+    // To prevent Safari BUG
+    text-decoration: none;
+    &:hover {
+      color: $color-tonal-black-50;
+    }
+  }
+  // From White to Tonal White(50%) with underline
+  &--2 {
+    color: $color-white;
+    text-decoration-color: $color-stroke-white-20;
+    &:hover {
+      color: $color-tonal-white-50;
+      text-decoration-color: transparent;
+    }
+  }
+  // From White to Tonal White(50%) without underline
+  &--3 {
+    color: $color-white;
+    text-decoration-color: transparent;
+    // To prevent Safari BUG
+    text-decoration: none;
+    &:hover {
+      color: $color-tonal-white-50;
+    }
+  }
+  // From Tonal White(50%) to White without underline
+  &--4 {
+    color: $color-tonal-white-50;
+    text-decoration-color: transparent;
+    // To prevent Safari BUG
+    text-decoration: none;
+    &:hover {
+      color: $color-white;
+    }
+  }
+}
+
+/***/
+
+/*** Titles ***/
+
+/***/

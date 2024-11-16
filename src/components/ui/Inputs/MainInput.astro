@@ -1,0 +1,46 @@
+---
+import { Icon } from "astro-icon/components";
+export interface Props {
+  value?: string;
+  type?: "text" | "number" | "email" | "tel";
+  id?: string;
+  name?: string;
+  label?: string;
+  placeholder?: string;
+  icon?: Boolean;
+  is_readonly?: Boolean;
+  is_disabled?: Boolean;
+  is_resetable?: boolean;
+  className?: string;
+  required?: Boolean;
+}
+const {
+  value,
+  type = "text",
+  id,
+  name,
+  label,
+  placeholder = label,
+  required = false,
+  icon = false,
+  is_readonly = false,
+  is_disabled = false,
+  is_resetable = false,
+  className,
+  ...rest
+} = Astro.props as Props;
+---
+
+<div class:list={["main-input", { "main-input--icon": icon, resetable: "is-resetable", "is-readonly": is_readonly, "is-disabled": is_disabled }, className]} {...rest}>
+  <div>
+    <slot name="icon_left" />
+    <input name={name} id={id} type={type} placeholder={placeholder} required={required === true ? "required" : undefined} value={value} />
+    {
+      is_resetable && (
+        <button class="main-input__reset">
+          <Icon name="General/Close" />
+        </button>
+      )
+    }
+  </div>
+</div>
